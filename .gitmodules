@@ -1,11 +1,12 @@
 [submodule "vesc"]
 	path = vesc
   url = https://github.com/AE-HYU/vesc.git
-	branch = humble
+	branch = ae-hyu-dev 
 [submodule "ackermann_mux"]
 	path = ackermann_mux
   url = https://github.com/AE-HYU/ackermann_mux.git
+  branch = ae-hyu-dev
 [submodule "teleop_tools"]
 	path = teleop_tools
   url = https://github.com/AE-HYU/teleop_tools.git
-	branch = humble-devel
+  branch = ae-hyu-dev
