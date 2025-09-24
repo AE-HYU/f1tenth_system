@@ -6,8 +6,8 @@
     speed_to_erpm_offset: 0.0
 
     # servo value (0 to 1) =  steering_angle_to_servo_gain * steering angle (radians) + steering_angle_to_servo_offset
-    steering_angle_to_servo_gain: -1.2135
-    steering_angle_to_servo_offset: 0.570526 #0.5304
+    steering_angle_to_servo_gain: -0.86
+    steering_angle_to_servo_offset: 0.565 #0.5304
 
     port: /dev/sensors/vesc
     duty_cycle_min: 0.0
@@ -16,12 +16,12 @@
     current_max: 100.0
     brake_min: -20000.0
     brake_max: 200000.0
-    speed_min: -23250.0
-    speed_max: 23250.0
+    speed_min: -35000.0
+    speed_max: 35000.0
     position_min: 0.0
     position_max: 0.0
-    servo_min: 0.284 #0.15
-    servo_max: 0.875 #0.85
+    servo_min: 0.2
+    servo_max: 0.95
 
 # No longer needed, all parameters are shared
 # ackermann_to_vesc_node:
@@ -32,12 +32,12 @@ vesc_to_odom_node:
     odom_frame: odom
     base_frame: base_link
     # publish odom to base link tf
-    publish_tf: false
+    publish_tf: true
     use_servo_cmd_to_calc_angular_velocity: true
     # car wheelbase is about 25cm
     wheelbase: 0.33
 
-    ekf_timer_period: 100.0
+    ekf_timer_period: 50.0
 
     # When using odometry at Racing
     #process noise covariance
