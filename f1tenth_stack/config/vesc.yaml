@@ -6,8 +6,8 @@
     speed_to_erpm_offset: 0.0
 
     # servo value (0 to 1) =  steering_angle_to_servo_gain * steering angle (radians) + steering_angle_to_servo_offset
-    steering_angle_to_servo_gain: -0.86
-    steering_angle_to_servo_offset: 0.565 #0.5304
+    steering_angle_to_servo_gain: -0.94 #-0.86
+    steering_angle_to_servo_offset: 0.452 #0.5304
 
     port: /dev/sensors/vesc
     duty_cycle_min: 0.0
@@ -16,12 +16,12 @@
     current_max: 100.0
     brake_min: -20000.0
     brake_max: 200000.0
-    speed_min: -35000.0
-    speed_max: 35000.0
+    speed_min: -100000.0
+    speed_max: 100000.0
     position_min: 0.0
     position_max: 0.0
-    servo_min: 0.2
-    servo_max: 0.95
+    servo_min: 0.00 #0.2
+    servo_max: 0.84
 
 # No longer needed, all parameters are shared
 # ackermann_to_vesc_node:
@@ -33,25 +33,26 @@ vesc_to_odom_node:
     base_frame: base_link
     # publish odom to base link tf
     publish_tf: true
-    use_servo_cmd_to_calc_angular_velocity: true
+    use_imu: true
+    use_servo_cmd_to_calc_angular_velocity: false 
     # car wheelbase is about 25cm
-    wheelbase: 0.33
+    wheelbase: 0.324
 
-    ekf_timer_period: 50.0
+    # ekf_timer_period: 50.0
 
-    # When using odometry at Racing
-    #process noise covariance
-    Q.x: 0.005 #1e-2
-    Q.y: 0.005 #1e-2
-    Q.yaw: 0.01 #1e-1
-    Q.vx: 0.025 #1e-3
-    Q.vy: 0.025 #1e-3
-    Q.yaw_rate: 0.02 #1e-1
+    # # When using odometry at Racing
+    # #process noise covariance
+    # Q.x: 0.005 #1e-2
+    # Q.y: 0.005 #1e-2
+    # Q.yaw: 0.01 #1e-1
+    # Q.vx: 0.025 #1e-3
+    # Q.vy: 0.025 #1e-3
+    # Q.yaw_rate: 0.02 #1e-1
 
-    R.vx: 1e-3
-    R.vy: 1e-3
-    R.yaw: 1e-3
-    R.yaw_rate: 1e-3
+    # R.vx: 1e-3
+    # R.vy: 1e-3
+    # R.yaw: 1e-3
+    # R.yaw_rate: 1e-3
 
 
     # # When using odometry at SLAM
