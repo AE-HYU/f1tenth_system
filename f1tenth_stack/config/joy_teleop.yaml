@@ -5,10 +5,18 @@ joy:
     deadzone: 0.01
     autorepeat_rate: 20.0
     coalesce_interval: 0.01
-    sticky_buttons: true
+    sticky_buttons: false
 
 joy_teleop:
   ros__parameters:
+    # Mode button configuration
+    mode_buttons:
+      manual: 2
+      neutral: 0
+      autonomous: 7
+      stop: 1
+      emergency_stop: 8
+
     default:
       type: topic
       interface_type: ackermann_msgs/msg/AckermannDriveStamped
@@ -19,7 +27,7 @@ joy_teleop:
           scale: 0.0
           offset: 0.0
         drive-steering_angle:
-          axis: 2
+          axis: 3
           scale: 0.0
           offset: 0.0
 
@@ -31,7 +39,21 @@ joy_teleop:
       axis_mappings:
         drive-speed:
           axis: 1
-          scale: 4.0
+          scale: 2.0
+          offset: 0.0
+        drive-steering_angle:
+          axis: 3
+          scale: 0.45
+          offset: 0.0
+
+    manual_mode_control:
+      type: topic
+      interface_type: ackermann_msgs/msg/AckermannDriveStamped
+      topic_name: teleop
+      axis_mappings:
+        drive-speed:
+          axis: 1
+          scale: 2.0
           offset: 0.0
         drive-steering_angle:
           axis: 3
