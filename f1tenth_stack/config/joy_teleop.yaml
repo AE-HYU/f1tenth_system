@@ -13,7 +13,7 @@ joy_teleop:
     mode_buttons:
       manual: 2
       neutral: 0
-      autonomous: 7
+      autonomous: 3
       stop: 1
       emergency_stop: 8
 
